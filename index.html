@@ -7,53 +7,130 @@
     <link rel="stylesheet" href="styles.css"></link>
 </head>
 <body>
-    <h1>PODAJ HASŁO</h1>
+    <h1 id="header">Podaj Hasło</h1>
     
 
 
 
     <div>
 
-  <img src="lock.PNG"width="250" height="250">
+  <img src="locked.PNG"width="280" id="lock" height="370" style="margin-bottom: -50px">
 
    
     </div>
 
     <div>
-        <input type="password" maxlength="4" id="passwordInput" style="
+        <p id="passwordInput" style="
 
-	width: 100px;
+
+	vertical-align: middle;
+       display: inline-block;
+	width: 90px;
 	height: 40px;
 	font-size: 40px;
-	outline: 2px solid black;
+	outline: 1px solid grey;
 
 
-">
-     </div>
-     
-    <div>
+	margin-left: auto;
+	margin-right: auto;
+
+
+"></p>
+    
    <button onclick="checkPassword()" style="
 
-
-	width: 120px;
+  
+	vertical-align: middle;
+	display: inline-block;
+	width: 40px;
        height: 40px;
 	font-size: 20px;
 	outline: 2px solid black;
+	border-radius: 1px;
+
 
 ">🗝️</button>
 
     </div>
-    
+
+  <div style="margin-top: -30px;">
+	<button class="keypad" onclick="addNumber(1)">1</button>
+	<button class="keypad" onclick="addNumber(2)">2</button>
+	<button class="keypad" onclick="addNumber(3)">3</button>
+  </div>
+
+  <div>
+	<button class="keypad" onclick="addNumber(4)">4</button>
+	<button class="keypad" onclick="addNumber(5)">5</button>
+	<button class="keypad" onclick="addNumber(6)">6</button>
+  </div>
+
+  <div>
+	<button class="keypad" onclick="addNumber(7)">7</button>
+	<button class="keypad" onclick="addNumber(8)">8</button>
+	<button class="keypad" onclick="addNumber(9)">9</button>
+  </div>
+
+  <div>
+	<button class="keypad" onclick="addNumber(0)">0</button>
+  </div>
+
+
+
+	<style>
+
+       .keypad {
+       color: red;
+	width: 45px;
+	height: 45px;
+	border-radius: 10px;
+	margin: 4px;
+	font-size: 30px;
+
+
+}
+
+
+
+	</style>
+
+
 	<script>
 
-      function checkPassword() {
+const header = document.getElementById("header");
 
-	const val = document.getElementById('passwordInput').value;
+const display =
+document.getElementById("passwordInput")
+
+      function checkPassword() {
+      
+	const val = document.getElementById('passwordInput').innerText;
      if (val == 1234){
+
+document.getElementById("lock").src = "unlocked.PNG";
+
+header.style.fontSize =("30px");
+header.style.color = ("#76bb40");
+header.innerText = ("✅HASŁO POPRAWNE✅");
+
+
+
+setTimeout(() => {
      window.location.href = "about.html";
+}, 1200);
      }
     else window.location.href = "wrong.html";
 }
+
+
+function addNumber(num) {
+
+if (display.innerText.length < 4) {
+display.innerText += num;
+}
+
+else display.innerText = "";
+ }
       </script>
 
 
